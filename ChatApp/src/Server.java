@@ -4,10 +4,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.Buffer;
-import java.sql.Connection;
 import java.util.ArrayList;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -60,14 +57,14 @@ public class Server implements Runnable {
             
     }
 
-     private class ConnectionHandler implements Runnable {
+        class ConnectionHandler implements Runnable {
         private Socket client;
         private BufferedReader in;
         private PrintWriter out;
         private String name;
 
         public ConnectionHandler(Socket client) {
-            // Initialize with client socket
+            this.client = client;
         }
         @Override
         public void run() {
